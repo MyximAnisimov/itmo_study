@@ -1,6 +1,6 @@
 Синтаксис языка
 ---
-`line :: = variable_name [ comment ] "\n"
+line :: = variable_name [ comment ] "\n"
   | [ comment ] "\n"
   | variable_name unary_op 
   | variable_name "=" variable_value binary_op variable_value
@@ -61,7 +61,7 @@ positive_integer :: = { <any of "0-9">}
 string :: = "\"" { <any symbol except "\t \n"> } "\""
 
 char :: = "\'" { <any symbol except "\t \n"> } "\'"
-`
+
 Операции:
 ++ - инкрементация
 -- - декрементация
