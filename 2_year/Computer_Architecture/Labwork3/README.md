@@ -1,3 +1,4 @@
+<span style="background-color: #efefef;">выделенный текст</span>
 line :: = variable_name [ comment ] "\n"
   | [ comment ] "\n"
   | variable_name unary_op 
