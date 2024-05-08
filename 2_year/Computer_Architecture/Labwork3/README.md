@@ -1,6 +1,6 @@
 Синтаксис языка
 ---
-line :: = variable_name [ comment ] "\n"
+`line` :: = variable_name [ comment ] "\n"
   | [ comment ] "\n"
   | variable_name unary_op 
   | variable_name "=" variable_value binary_op variable_value
