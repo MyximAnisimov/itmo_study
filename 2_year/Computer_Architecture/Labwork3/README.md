@@ -10,7 +10,7 @@ line :: = variable_name [ comment ] "\n"
   | variable_name unary_op 
   | variable_name "=" variable_value binary_op variable_value
   | variable_name "=" complex_eq
-  | operator1 "(" complex_log_eq " ")" “{“
+  | branching_op "(" complex_log_eq " ")" “{“
   | “}”
 
 program :: = { line }
@@ -35,7 +35,7 @@ complex_eq :: = some_eq { binary_op some_eq }
 
 comment :: = "//" <any symbols except "\n">
 
-operator1 :: = "for"
+branching_op :: = "for"
   | "if"
   | “else if”
             | "while"
