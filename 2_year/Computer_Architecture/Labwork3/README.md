@@ -1,4 +1,4 @@
-h1 Синтаксис языка
+Синтаксис языка
 ---
 line :: = variable_name [ comment ] "\n"
   | [ comment ] "\n"
