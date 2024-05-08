@@ -1,5 +1,7 @@
 Синтаксис языка
 ---
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 line :: = variable_name [ comment ] "\n"
   | [ comment ] "\n"
   | variable_name unary_op 
@@ -61,7 +63,7 @@ positive_integer :: = { <any of "0-9">}
 string :: = "\"" { <any symbol except "\t \n"> } "\""
 
 char :: = "\'" { <any symbol except "\t \n"> } "\'"
-
+```
 Операции:
 ++ - инкрементация
 -- - декрементация
