@@ -67,7 +67,7 @@ string :: = "\"" { <any symbol except "\t \n"> } "\""
 
 char :: = "\'" { <any symbol except "\t \n"> } "\'"
 ```
-Операции:
+## Операции:
 ### branching_op
 * `for` - цикл-for
 * `if` - условие
