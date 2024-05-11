@@ -43,8 +43,15 @@ op2 :: = "add"
 op3 :: = "call"
        | "halt"                
 
+integer :: = [ " - " ] { <any of "0-9"> }-
 
+positive_integer :: = { <any of "0-9"> }-
 
+string :: = "\"" { <any of "a-z A-Z" > }- "\""
+
+buffer :: = "bf " positive_integer
+
+comment :: = ";" { <any symbol except "\n"> }
 ```
 ## Операции:
 ### branching_op
