@@ -27,8 +27,7 @@ instr :: = op0 register
          | op1 register ", " memory_address
          | op2 register ", " register ", " register
          | op3 label_name
-         | "halt"
-         | "ret"         
+         | op4         
 
 op0 :: = "inc"
        | "dec"          
@@ -45,7 +44,13 @@ op2 :: = "add"
 op3 :: = "call" 
        | "jmp"
        | "jz" 
-       | "jnz"              
+       | "jnz"
+
+op4 :: = "ei"
+       | "di"
+       | "ret"
+       | "iret"
+       | "halt"                          
                            
 
 register :: = "r" <any of "0-9">
@@ -80,8 +85,11 @@ comment :: = ";" { <any symbol except "\n"> }
 * `jmp { label_name }` - безусловный переход на указанную метку
 * `jz {label_name }` - переход на указанную метку если `z-flag` равен 1
 * `jnz { label_name }` - переход на указанную метку если `z-flag` равен 0
-#### команды без аргументов
+#### op4
+* `ei` - разрешить прерывание
+* `di` - запретить прерывание
 * `ret` - выход из подпрограммы
+* `iret` - выход из текущего прерывания
 * `halt` - остановка программы
   
 Организация памяти
