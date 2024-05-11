@@ -5,67 +5,40 @@
 * `{...}` - вхождение 0 или несколько раз
 * `{...}-` - вхождение 1 или несколько раз
 ```
-line :: = variable_name [ comment ] "\n"
-  | [ comment ] "\n"
-  | variable_name unary_op 
-  | variable_name "=" variable_value binary_op variable_value
-  | variable_name "=" complex_eq
-  | branching_op "(" complex_log_eq " ")" “{“
-  | “}”
+program :: = section_data "\n" section_text
 
-program :: = { line }
+section_data :: = "section .data" "\n" { global_line }
 
-variable_name :: = <any of "a-z A-Z"> { <any of "a-z A-Z _ "0-9"> }
+section_text :: = "section .text" "\n" { text_line }
 
-variable :: = "var" variable_name "=" variable_value
+global_line :: = label_name ":"  variable [ comment ]
 
-variable_value :: = integer 
-  | positive_integer
-  | string
-  | char
-  | variable_name
+variable :: = integer
+            | string
+            | float
+            | buffer
+            | label_name
 
-logical_eq :: = "(" variable_value equal_op variable_value ")" 
+label_name :: = <any of " a-z A-Z "> { <any of " a-z A-Z 0-9 _ "> }
 
-complex_log_eq :: = logical_eq { concatenation logical_eq }
+text_line :: = instr [ comment ]
 
-simple_eq :: = variable_name { binary_op variable_name }
+instr :: = op0
+         | op1 label_name
 
-complex_eq :: = some_eq { binary_op some_eq }
-
-comment :: = "//" <any symbols except "\n">
-
-branching_op :: = "for"
-  | "if"
-  | “else if”
-  | "while"
-
-compare_op :: = "=="
-  | "<="
-  | ">="
-  | "!="
-  | "<"
-  | ">"
-
-concatenation :: = “&&” 
-  | “||”
-
-unary_op :: = "++"
-  | "- -"
+op0 :: = "nop"
+       | "inc"
+       | "dec"
+       | "add"
+       | "sub"
+       | "mul"
+       | "div"
+       | "mod"
+       | "call"         
  
-binary_op :: = "+"
-  | "-"
-  | "/"
-  | "*"
-  | "%"
 
-integer :: = [ "-" ] { <any of "0-9"> }-
 
-positive_integer :: = { <any of "0-9">}
 
-string :: = "\"" { <any symbol except "\t \n"> } "\""
-
-char :: = "\'" { <any symbol except "\t \n"> } "\'"
 ```
 ## Операции:
 ### branching_op
