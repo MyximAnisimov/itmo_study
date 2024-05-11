@@ -23,19 +23,25 @@ label_name :: = <any of " a-z A-Z "> { <any of " a-z A-Z 0-9 _ "> }
 
 text_line :: = instr [ comment ]
 
-instr :: = op0
-         | op1 label_name
+instr :: = op0 register
+         | op1 register ", " label_name
+         | op2 register ", " register
+         | op3 label_name  
 
-op0 :: = "nop"
-       | "inc"
-       | "dec"
-       | "add"
+op0 :: = "inc"
+       | "dec"          
+
+op1 :: = "load"
+       | "store"     
+
+op2 :: = "add"
        | "sub"
        | "mul"
        | "div"
        | "mod"
-       | "call"         
- 
+
+op3 :: = "call"
+       | "halt"                
 
 
 
