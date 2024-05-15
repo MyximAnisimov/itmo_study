@@ -121,6 +121,4 @@ comment :: = ";" { <any symbol except "\n"> }
 Модель процессора
 ---
 ### DataPath
-```markdown
-https://github.com/MyximAnisimov/itmo_study/blob/main/2_year/Computer_Architecture/Labwork3/DataPath.png
-```
+![Image alt](https://github.com/MyximAnisimov/itmo_study/blob/main/2_year/Computer_Architecture/Labwork3/DataPath.png)
