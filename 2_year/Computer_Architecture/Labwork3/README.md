@@ -24,7 +24,7 @@ label_name :: = <any of " a-z A-Z "> { <any of " a-z A-Z 0-9 _ "> }
 text_line :: = instr [ comment ]
 
 instr :: = op0 register
-         | op1 register ", " memory_address
+         | op1 register ", " memory_address 
          | op2 register ", " register ", " register
          | op3 label_name
          | op4         
@@ -54,7 +54,7 @@ op4 :: = "in"
 
 register :: = "r" <any of "0-9">
 
-memory_address :: = <any of "0-9> <any of "0-9">
+memory_address :: = "(" { <any of "0-9"> } ")"
 
 integer :: = [ " - " ] { <any of "0-9"> }-
 
