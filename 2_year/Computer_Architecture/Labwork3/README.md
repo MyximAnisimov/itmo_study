@@ -24,8 +24,8 @@ label_name :: = <any of " a-z A-Z "> { <any of " a-z A-Z 0-9 _ "> }
 text_line :: = instr [ comment ]
 
 instr :: = op0 register
-         | op1 register ", " memory_address
-         | op2 register ", " register ", " register
+         | op1 register " " memory_address 
+         | op2 register " " register " " register
          | op3 label_name
          | op4         
 
@@ -49,12 +49,14 @@ op3 :: = "call"
 op4 :: = "in"
        | "out"     
        | "ret"
+       | "push"
+       | "pop"          
        | "halt"                          
                            
 
 register :: = "r" <any of "0-9">
 
-memory_address :: = <any of "0-9> <any of "0-9">
+memory_address :: = "(" { <any of "0-9"> } ")"
 
 integer :: = [ " - " ] { <any of "0-9"> }-
 
@@ -87,6 +89,8 @@ comment :: = ";" { <any symbol except "\n"> }
 #### op4
 * `in` - ввод
 * `out` - вывод
+* `push` - занесение данных в стек
+* `pop` - удаление данных с вершины стека
 * `ret` - выход из подпрограммы
 * `halt` - остановка программы
   
@@ -95,7 +99,6 @@ comment :: = ";" { <any symbol except "\n"> }
 * Архитектура фон-Неймана
 * Машинное слово - не определено
 * Данные имеют разрядность 32 бита
-* Абсолютная адресция
 ### Схема памяти
 ```
 +----------------------------+
@@ -107,7 +110,7 @@ comment :: = ";" { <any symbol except "\n"> }
 |           ...              |
 | n:   program start         |
 |           ...              |
-| 600: stack                 |
+| 1448: stack                |
 +----------------------------+
 ```
 * В ячейке 00 лежит адрес начала программы
@@ -116,7 +119,12 @@ comment :: = ";" { <any symbol except "\n"> }
  - Целочисельные
  - Строковые
  - Буфферные
-* В ячейках, начиная с 600 и до конца памяти хранится стек данных
+* В ячейках, начиная с 1448 и до конца памяти хранится стек данных
+### Адресация памяти
+- Прямая заугрзка
+- Асболютная адресация
+- Косвенная адресация
+- 
 
 Модель процессора
 ---
