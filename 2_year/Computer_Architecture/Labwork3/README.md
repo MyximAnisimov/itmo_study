@@ -1,105 +1,99 @@
 Архитекутра компьютера - Лабораторная №3
-----
+---
 Выполнил
 ---
 Анисимов Максим Дмитриевич P3233
-Вариант
+
+Вариант (упрощённый)
 ---
+Базовый вариант: alg | risc | neum | hw | instr | binary | stream | mem | pstr | prob1 | cache
+Вариант после упрощения: asm | risc | neum | hw | instr | struct | stream | mem | pstr | prob1 | cache
+
 Синтаксис языка
 ---
 Синтаксис в расширенной БНФ
-* `[...]` - вхождение 0 или 1 раз
-* `{...}` - вхождение 0 или несколько раз
-* `{...}-` - вхождение 1 или несколько раз
+* [...] - вхождение 0 или 1 раз
+* {...} - вхождение 0 или несколько раз
+* {...}- - вхождение 1 или несколько раз
+
+### Форма Бэкуса-Наура
 ```
-program :: = section_data "\n" section_text
+program ::= { program_line }-
 
-section_data :: = "section .data" "\n" { global_line }
+program_line ::= code_line [ comment ]
 
-section_text :: = "section .text" "\n" { text_line }
+code_line ::=  data_label ":" 
+        | insruction 
+        | data
 
-global_line :: = label_name ":"  variable [ comment ]
+data ::= ".word" variable
 
-variable :: = integer
-            | string
-            | float
-            | buffer
-            | label_name
+variable ::= integer
+       | string
+       | label_name
 
-label_name :: = <any of " a-z A-Z "> { <any of " a-z A-Z 0-9 _ "> }
+instruction ::= op0 
+       | op1 register 
+       | op2 register "," register
+       | op3 address
+       | op4 register, address
+       | op4 address, register
 
-text_line :: = instr [ comment ]
+address ::= label_name | "(" label_name ")"
 
-instr :: = op0 register
-         | op1 register " " memory_address 
-         | op2 register " " register " " register
-         | op3 label_name
-         | op4         
+label_name ::= <any of "a-z A-Z"> { <any of "a-z A-Z 0-9 _ "> }
 
-op0 :: = "inc"
-       | "dec"          
+register ::= "r" <any of "0-3">
 
-op1 :: = "load"
-       | "store"     
+op0 ::= "nop" 
+      | "hlt" 
 
-op2 :: = "add"
-       | "sub"
-       | "mul"
-       | "div"
-       | "mod"
+op1 ::= "inc" 
+      | "dec"
 
-op3 :: = "call" 
-       | "jmp"
-       | "jz" 
-       | "jnz"
+op2 ::= "add" 
+      | "sub"
+      | "mod"
+      | "test"
+      
+op3 ::= "jg" 
+      | "jng"
+      | "jz" 
+      | "jnz" 
+      | "jmp"
 
-op4 :: = "in"
-       | "out"     
-       | "ret"
-       | "push"
-       | "pop"          
-       | "halt"                          
-                           
+op4 ::= "mov"
 
-register :: = "r" <any of "0-9">
-
-memory_address :: = "(" { <any of "0-9"> } ")"
-
-integer :: = [ " - " ] { <any of "0-9"> }-
+integer :: = [ "-" ] { <any of "0-9"> }-
 
 positive_integer :: = { <any of "0-9"> }-
 
-string :: = "\"" { <any of "a-z A-Z" > }- "\""
+string ::= "\'" { <any of "a-z A-Z">}- "\'"
 
-buffer :: = "bf " positive_integer
-
-comment :: = ";" { <any symbol except "\n"> }
+comment ::= ";" { <any symbol except "\n"> }
 ```
-### Операции:
-#### op0
-* `inc { register }` - операция инкрементации значения в регистре
-* `dec { register }` - операция декрментации значения в регистре
-#### op1
-* `load { register memory_address }` - загрузка данных из памяти в регистр
-* `store { register memory_address }` - загрузка данных из регистра в память
-#### op2
-* `add { register register register }` - сложение второго регистра с третьим и сохранение результата в первом регистре
-* `sub { register register register }` - вычитание третьего регистра из второго и сохранение результата в первом регистре
-* `mul { register register register }` - умножение второго и третьего регистра и сохранение результата в первом регистре
-* `div { register register register }` - деление второго регистра на третий и сохранение результата в первом регистре
-* `mod { register register register }` - нахождение остатка деления второго регистра на третий и сохранение результата в первом регистре
-#### op3
-* `call { label_name }` - вызов пдопрограммы по указанной метке
-* `jmp { label_name }` - безусловный переход на указанную метку
-* `jz {label_name }` - переход на указанную метку если `z-flag` равен 1
-* `jnz { label_name }` - переход на указанную метку если `z-flag` равен 0
-#### op4
-* `in` - ввод
-* `out` - вывод
-* `push` - занесение данных в стек
-* `pop` - удаление данных с вершины стека
-* `ret` - выход из подпрограммы
-* `halt` - остановка программы
+### Операции
+#### op0 (Безадресные операции)
+* nop - нет операции
+* hlt - остановка работы программы
+#### op1 (Адресные операции)
+* inc { register } - операция инкрементации значения в регистре
+* dec { register } - операция декрментации значения в регистре
+#### op2 (Адресные операции)
+Результаты сохраняются в первом регистре команды
+* add { register register } - сложение первого и второго регистра
+* sub { register register } - вычитание первого и второго регистра
+* mod { register register } - нахождение остатка деления первого регистра на второй
+* test {register register} - логическое умножение двух регистров
+#### op3 (Операции ветвления)
+* jg { label_name } - переход по адресу label_name, если флаг N = 0 (Результат вычислений положительный)
+* jng { label_name } - переход по адресу label_name, если флаг N != 0 (Результат вычислений отрицательный)
+* jz {label_name } - переход по адресу label_name если флаг Z = 0 (Результат вычислений равен 0)
+* jnz { label_name } - переход на указанную метку если Z != 0 (Результат вычислений не равен 0)
+* jmp { label_name } - безусловный переход по адресу
+#### op4 (Адресная операция)
+* mov { register, address } - загрузить значение из address в register
+* mov { address, register } - загрузить значение из register в address
   
 Организация памяти
 ---
@@ -108,35 +102,33 @@ comment :: = ";" { <any symbol except "\n"> }
 * Данные имеют разрядность 32 бита
 ### Схема памяти
 ```
+            memory
 +----------------------------+
 | 00:  start address (n)     |
 | 01:  input port            |
-| 02:  output port           |
-| 03:       ...              |             
+| 02:  output str port       |
+| 03:  output int port       |   
+| 04:       ...
 |      variables space       |
 |           ...              |
 | n:   program start         |
 |           ...              |
-| 1448: stack                |
 +----------------------------+
 ```
 * В ячейке 00 лежит адрес начала программы
-* В ячейках 01 и 02 хранятся порты ввода-вывода
+* В ячейках 01, 02, 03 хранятся порты ввода-вывода
 * В ячейках с 03 по n хранятся переменные, используемые в программе:
  - Целочисельные
  - Строковые
- - Буфферные
-* В ячейках, начиная с 1448 и до конца памяти хранится стек данных
+* Внутри процессора находятся регистры общего назначения r0-r3 (Что соответствует RISC-архитектуре), а также служебные регистры:
+ - IP - счётчик
+ - AR - регистр адреса
+ - DR - регистр данных
+ - PS - регистр состояния
 ### Адресация памяти
-- Прямая заугрзка
 - Асболютная адресация
 - Косвенная адресация
-- 
 
 Модель процессора
 ---
 ### DataPath
-![Image alt](https://github.com/MyximAnisimov/itmo_study/blob/main/2_year/Computer_Architecture/Labwork3/DataPath.png)
-
-### Control Unit
-
