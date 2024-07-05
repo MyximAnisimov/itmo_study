@@ -1,0 +1,36 @@
+.button-input{
+    width: 40px;
+    border: 1px solid black;
+    border-radius: 6px;
+    background-color: lightyellow;
+    margin: 1px;
+    display: inline-block;
+    text-decoration: none;
+    color:black
+}
+
+.button-input:hover{
+    color: white;
+    transition: 0.5s;
+    border: 1px solid red;
+    background-color: forestgreen;
+    margin: 1px;
+    display: inline-block;
+}
+
+.button-input-selected{
+    text-decoration: none;
+    width: 40px;
+    color: white;
+    border: 1px solid black;
+    border-radius: 6px;
+    background-color: green;
+    margin: 1px;
+    display: inline-block;
+}
+.page_headers{
+    font-size: 20px;
+    padding-left: 50%;
+    margin-top: 10px;
+    background-color: rgba(255, 255, 255, 0.473);
+}

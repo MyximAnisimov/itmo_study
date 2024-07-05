@@ -1,0 +1,4 @@
+web\CheckAreaServlet.class
+web\CoordinatesValidator.class
+web\AreaChecker.class
+web\ControllerServlet.class

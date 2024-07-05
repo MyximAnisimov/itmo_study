@@ -1,0 +1,133 @@
+/*@font-face {*/
+/*    font-family: "ubuntu";*/
+/*    src: url("../fonts/ubuntu.ttf");*/
+/*  }*/
+p[lang="chooseCoord"]{
+    font-size: large;
+    /*font-family: "ubuntu";*/
+}
+button {
+	display: inline-block;	
+	box-sizing: border-box;
+	padding: 0 7%;
+	margin: 0 5% 5% 0;
+	outline: none;
+	border: 1px solid #fff;
+	border-radius: 25px;
+	height: 20px;
+	line-height: 14px;
+	font-size: 14px;
+	font-weight: 600;
+	text-decoration: none;
+	color: #444;
+	background-color: #fff;
+	box-shadow: 0 4px 6px rgb(65 132 144 / 10%), 0 1px 3px rgb(0 0 0 / 8%);
+	cursor: pointer;
+	user-select: none;
+	appearance: none;
+	touch-action: manipulation;  
+	vertical-align: top;
+	transition: box-shadow 1s;
+}
+button:hover {
+	transition: all 1s;
+	box-shadow: 0 7px 14px rgb(65 132 144 / 10%), 0 3px 6px rgb(0 0 0 / 8%);
+}
+button:active {
+	background-color: #808080;
+}
+button:disabled {
+	background-color: #eee;
+	border-color: #eee;
+	color: #444;
+	cursor: not-allowed;
+}
+img{
+    max-width: 70%;
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 10%;
+    margin-left: 20%;
+}
+.table1{
+        width: 70%;
+        text-align: center;
+        margin-left: 15%;
+        margin-right: 15%;
+        background-color: rgba(255, 255, 255, 0.473);
+        border-radius: 20px;
+        
+    }
+       table>td, th {
+
+         width: 15%;
+        height: 10%;
+       }
+       tr{
+       padding-left: 6%;
+       }
+.column1{
+    height: 150px;
+}
+.pointR{
+    display: block;
+}
+
+    h1{ 
+        color: black;
+        font-size: 20px;
+        padding: 1%;
+        text-align:center;
+        /*font-family: "ubuntu";*/
+font-style: normal; 
+font-weight: normal;
+  border-radius: 10px; 
+  margin-left: 15%;
+  margin-right: 15%;
+  background-color: rgba(255, 255, 255, 0.473);
+
+        }
+    select{
+        border-radius: 20px;
+    }
+    #coordX{
+        /*font-family: "ubuntu";*/
+        width: 40%; 
+    }
+    #coordY{
+        /*font-family: "ubuntu";*/
+        width: 40%;
+    }
+    #coordR{
+        /*font-family: "ubuntu";*/
+        width: 40%;
+    }
+    #interactiveField circle{
+        fill: red;
+    }
+    .axis{
+        stroke-width: 0.5px;
+    }
+    /*#interactiveField{*/
+    /*    background-color: rgba(255,255,255,0.51);*/
+    /*    border-radius: 20px;*/
+    /*    margin-top: 5%;*/
+    /*    margin-bottom: 5%;*/
+    /*    margin-left: 5%;*/
+    /*}*/
+    #myCanvas{
+        background-color: rgba(255, 255, 255, 0.51);
+        border-radius: 20px;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        margin-left: 5%;
+}
+label{
+    /*font-family: "ubuntu";*/
+}
+.table2{
+/*font-family: "ubuntu";*/
+}
+.header_table2{
+/*font-family: "ubuntu";*/
+}

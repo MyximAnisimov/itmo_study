@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:jsp="http://xmlns.jcp.org/jsf/html">
+   <h:head>
+      <title>Lab3</title>
+      <h:outputStylesheet library="css" name="buttons.css" target="head"/>
+      <style type="text/css">
+         body {
+            background: linear-gradient(to bottom left, #420588bb, #d4091aa6);
+         }
+      </style>
+   </h:head>
+<h:body style="text-align: center">
+   <div style=" color: black; font-size: 10px; padding: 1%; text-align:center; font-style: normal; font-weight: normal; border-radius: 10px 10px 0 0; margin-left: 15%; margin-right: 15%; background-color: rgba(255, 255, 255, 0.473);">
+      <h1> Веб-программирование, Лабораторная работа №3, Вариант 123123
+         Анисимов Максим Дмитриевич P3233
+      </h1>
+   </div>
+   <div id="chart" style="width: 70%; margin: 0 auto;  background-color: rgba(255, 255, 255, 0.473)">
+   </div>
+   <div id="parameters" style="width: 70%; margin: 0 auto;  background-color: rgba(255, 255, 255, 0.473); text-align: center">
+   <h:form style="width: 100%; margin: 0 auto;  background-color: rgba(255, 255, 255, 0.473);  border-radius: 10px;">
+<!--      <p:panel header="Ввод параметров:">-->
+         <h:panelGrid>
+
+            <p:row>
+               <p:column class="page_headers">
+                  Ввод параметров
+               </p:column>
+               <p:column>
+                  X(-3 ... 3):
+               </p:column>
+               <p:column>
+                  <h:inputHidden id="x" value="#{pointDateBean.newPoint.x}"/>
+<!--                  <p:slider for="x" display="x_out" minValue="-2" maxValue="2" step="0.5"/>-->
+                  <p:spinner for="x"
+                             display = "x_out"
+                             value="#{pointDateBean.newPoint.x}"
+                             required="true"
+                             min="-3"
+                             max="3"
+                             type="number"
+                             step="1"/>
+<!--                  <h:outputText id="x_out" value="#{pointDateBean.newPoint.x}"/>-->
+               </p:column>
+            </p:row>
+            <p:row>
+               <p:column>
+                  Y(-3 ... 5):
+               </p:column>
+               <p:column>
+                  <p:inputNumber id="input1" onchange="setY()"
+                                 value="#{pointDateBean.newPoint.y}"
+                                 decimalSeparator="."
+                                 minValue="-3" maxValue="5"
+                                 decimalPlaces="2"
+                                 autocomplete="off"
+                                 thousandSeparator="false"
+                                 required="true"/>
+                  <h:inputHidden id="y" value="#{pointDateBean.newPoint.y}" />
+               </p:column>
+            </p:row>
+
+            <p:row>
+               <p:column>
+                  R(1 ... 4):
+               </p:column>
+               <p:column>
+
+<!--                  <p:slider for="r" display="r_out" minValue="1" maxValue="4" step="0.25" onchange="draw(1)">-->
+<!--                  </p:slider>-->
+                  <p:commandLink name="r" class="button-input" display="r_out" value="1" actionListener="#{pointDateBean.newPoint.setR(1.0)}" onchange="draw(1)"/>
+                  <p:commandLink name="r" class="button-input" display="r_out"  value="1.5" actionListener="#{pointDateBean.newPoint.setR(1.5)}" onchange="draw(1)"/>
+                  <p:commandLink name="r" class="button-input" display="r_out"  value="2" actionListener="#{pointDateBean.newPoint.setR(2.0)}" onchange="draw(1)"/>
+                  <p:commandLink name="r" class="button-input" display="r_out"  value="2.5" actionListener="#{pointDateBean.newPoint.setR(2.5)}" onchange="draw(1)"/>
+                  <p:commandLink name="r" class="button-input" display="r_out"  value="3" actionListener="#{pointDateBean.newPoint.setR(3.0)}" onchange="draw(1)"/>
+<!--                   <h:inputHidden id="r" value="#{pointDateBean.newPoint.r}" onchange="draw(1)"/>-->
+ <!--<h:outputText id="r_out" value="#{pointDateBean.newPoint.r}" onchange="draw(1)"/>-->
+               </p:column>
+            </p:row>
+         </h:panelGrid>
+         <p:commandButton id="out_button"
+                          value="Enter"
+                          ajax="false"
+                          action="#{pointDateBean.doCode}"/>
+            <h:form style=" color: black; font-size: 20px; padding: 1%; text-align:center; font-style: normal; font-weight: normal; margin-left: 15%; margin-right: 15%; background-color: rgba(255, 255, 255, 0.473);">
+               <p:button outcome="to_index" value="Go to clock" icon="pi"/>
+            </h:form>
+<!--      </p:panel>-->
+   </h:form>
+   </div>
+<!--   <h:form style=" color: black; font-size: 20px; padding: 1%; text-align:center; font-style: normal; font-weight: normal; margin-left: 15%; margin-right: 15%; background-color: rgba(255, 255, 255, 0.473);">-->
+<!--      <p:button outcome="to_index" value="Go to clock" icon="pi"/>-->
+<!--   </h:form>-->
+   <h:panelGroup id="entriesTable">
+      <p:column class="page_headers">
+         Таблица результатов
+      </p:column>
+      <h:dataTable id="table_out_data" value="#{pointDateBean.pointsTable}" var="point"
+                   style="width: 70%; color: black; font-size: 20px; padding: 1%; text-align:center; font-style: normal; font-weight: normal; border-radius: 0 0 10px 10px; margin-left: 15%; margin-right: 15%; background-color: rgba(255, 255, 255, 0.473);">
+         <h:column>
+            <f:facet name="header">X</f:facet>
+            #{point.x}
+         </h:column>
+
+         <h:column>
+            <f:facet name="header">Y</f:facet>
+            #{point.y}
+         </h:column>
+
+         <h:column>
+            <f:facet name="header">R</f:facet>
+            #{point.r}
+         </h:column>
+
+<!--         <h:column>-->
+<!--            <f:facet name="header">Date</f:facet>-->
+<!--            #{point.dateTime}-->
+<!--         </h:column>-->
+
+         <h:column>
+            <f:facet name="header">Result</f:facet>
+            #{point.res}
+         </h:column>
+      </h:dataTable>
+   </h:panelGroup>
+   <h:outputScript library="javaScript" name="validate.js"/>
+
+</h:body>
+</html>
