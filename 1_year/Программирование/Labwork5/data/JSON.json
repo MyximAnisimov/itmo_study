@@ -1,0 +1,38 @@
+[
+{
+"id": 1,
+"name": "Maxim",
+"coordinates": {
+  "x": 4,
+  "y": 5
+},
+"creationDate": "2023-03-23",
+"height": 175,
+"birthday": "2005-01-17",
+"passportID": "34535346",
+"nationality": "Ukrainian",
+"location": {
+  "x": 6,
+  "y": 7,
+  "z": 8,
+  "name": "Saint-Petersburg"
+}},
+  {
+    "id": 2,
+    "name": "Maxim",
+    "coordinates": {
+      "x": 4,
+      "y": 5
+    },
+    "creationDate": "2023-03-23",
+    "height": 175,
+    "birthday": "2005-01-17",
+    "passportID": "34535346",
+    "nationality": "Ukrainian",
+    "location": {
+      "x": 6,
+      "y": 7,
+      "z": 8,
+      "name": "Saint-Petersburg"
+    }}
+]

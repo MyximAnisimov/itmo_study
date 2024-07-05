@@ -1,0 +1,1 @@
+PGPASSWORD=s379791 psql -h localhost -p 5432 -U s379791 -d studs

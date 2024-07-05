@@ -1,0 +1,21 @@
+<root>
+	<day>Пн</day>
+	<shedule>
+			<Time>08:20-09:50</Time>
+			<Week>3, 5, 7, 9, 11, 13, 15, 17</Week>
+			<Room>2435/4 (бывш. 431в) ауд.</Room>
+			<Place>Кронверкский пр., д.49, лит.А</Place>
+			<Class>Программирование(Лаб)</Class>
+			<Teacher>Письмак Алексей Евгеньевич</Teacher>
+			<Format>Очно - дистанционный</Format>
+	</shedule>
+	<shedule>
+			<Time>10:00-11:30</Time>
+			<Week>3, 5, 7, 9, 11, 13, 15, 17</Week>
+			<Room>2435/4 (бывш. 431в) ауд.</Room>
+			<Place>Кронверкский пр., д.49, лит.А</Place>
+			<Class>Программирование(Лаб)</Class>
+			<Teacher>Письмак Алексей Евгеньевич</Teacher>
+			<Format>Очно - дистанционный</Format>
+	</shedule>
+</root>

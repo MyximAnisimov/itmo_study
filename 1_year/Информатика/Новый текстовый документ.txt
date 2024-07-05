@@ -1,0 +1,49 @@
+
+import re
+match =  re.findall(r'[8]+[<]+[{]+[P]', r'438468<{P2638568<{P')
+print(match.count('8<{P'))
+2
+match =  re.findall(r'[8]+[<]+[{]+[P]', r'8<(Pjfjlseolqwo8<{P8<{P8<{P')
+print(match.count('8<{P'))
+match =  re.findall(r'[8]+[<]+[{]+[P]', r'8<(Pjfjlseolqwo8<{P8<{P8<{P')
+print(match.count('8<{P'))
+3
+match =  re.findall(r'[8]+[<]+[{]+[P]', r'8<{P 8<{P 8<{P 8<{ 8<{P 8<{P 8<{P 8<{P')
+print(match.count('8<{P'))
+7
+match =  re.findall(r'[8]+[<]+[{]+[P]', r'P{<8 8<{P 8<{ 8<{P 8<{P 8<{P 8<{P')
+print(match.count('8<{P'))
+match =  re.findall(r'[8]+[<]+[{]+[P]', r'P{<8 8<{P 8<{ 8<{P 8<{P 8<{P 8<{P')
+print(match.count('8<{P'))
+5
+
+
+sometext = "Классное слово – обороноспособность, которое должно идти после слов: трава и молоко"
+finder =re.findall(r'\w{0,}[о]\w{0,}',sometext)
+print(finder)
+аэюяиуео
+
+
+
+[А-Я]+[а-я]\S*+\s+[А-Я]+['.']+[А-Я]+['.'] - для второго доп задания 
+
+
+[А-Я]+[а-я]\S*+\s+[А-Я]+["."]+(?:\s+[А-Я]|[А-Я])+["."]
+
+
+
+
+import re
+match =  re.findall(r'8<{P', r'438468<{P2638568<{P')
+print(match.count('8<{P'))
+match =  re.findall(r'8<{P', r'8<(Pjfjlseolqwo8<{P8<{P8<{P')
+print(match.count('8<{P'))
+match =  re.findall(r'8<{P', r'8<{P 8<{P 8<{P 8<{ 8<{P 8<{P 8<{P 8<{P')
+print(match.count('8<{P'))
+match =  re.findall(r'8<{P', r'P{<8 8<{P 8<{ 8<{P 8<{P 8<{P 8<{P')
+print(match.count('8<{P'))
+match =  re.findall(r'8<{P', r'888<<<<{{{{{PPPPPP 8 < { P ')
+print(match.count('8<{P'))
+sometext = "Анисимов М.Д. dfj,gskgjskdghkd.rjghkdfg Anisimov M. D. drghskfjskdfhdgh Васильев О.В., Адаменко О.А."
+finder1 =re.findall(r'[А-Я]+[а-я]\S*+\s+[А-Я]+["."]+(?:\s+[А-Я]|[А-Я])+["."]', sometext)
+print(sorted(finder1))

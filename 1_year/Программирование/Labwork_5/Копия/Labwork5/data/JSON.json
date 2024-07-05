@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Maxim",
+    "coordinates": {
+      "x": 4,
+      "y": 5
+    },
+    "creationDate": "2023-03-23",
+    "height": 170,
+    "birthday": "2005-01-17",
+    "passportID": "213123",
+    "nationality": "JAPAN",
+    "location": {
+      "x": 6,
+      "y": 7,
+      "z": 8,
+      "name": "Saint-Petersburg"
+    }},
+  {
+    "id": 2,
+    "name": "Oleg",
+    "coordinates": {
+      "x": 4,
+      "y": 5
+    },
+    "creationDate": "2023-03-23",
+    "height": 175,
+    "birthday": "2004-11-11",
+    "passportID": "8675676",
+    "nationality": "ITALY",
+    "location": {
+      "x": 123,
+      "y": 45,
+      "z": 6756,
+      "name": "Moscow"
+    }}
+]
