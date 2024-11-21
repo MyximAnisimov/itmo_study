@@ -1,4 +1,0 @@
-DB_USER=s379791
-DB_PASSWORD=s379791
-DB_URL=jdbc:postgresql://127.0.0.1:5432/studs
-PEPPER=pepper

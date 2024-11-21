@@ -1,6 +1,0 @@
-rootProject.name = 'Labwork7'
-include 'server1'
-include 'server'
-include 'client'
-include 'common'
-
