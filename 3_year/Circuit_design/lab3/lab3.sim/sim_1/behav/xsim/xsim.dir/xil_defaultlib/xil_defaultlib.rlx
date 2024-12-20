@@ -1,0 +1,10 @@
+0.6
+2019.1
+May 24 2019
+15:06:07
+C:/Schemotechnic/lab3/lab3.sim/sim_1/behav/xsim/glbl.v,1558713910,verilog,,,,glbl,,,,,,,,
+C:/Schemotechnic/lab3/lab3.srcs/sim_1/new/my_func_tb.v,1732815320,verilog,,,,my_func_tb,,,,,,,,
+C:/Schemotechnic/lab3/lab3.srcs/sources_1/new/frequency_divider.v,1732812629,verilog,,C:/Schemotechnic/lab3/lab3.srcs/sources_1/new/mul.v,,frequency_divider,,,,,,,,
+C:/Schemotechnic/lab3/lab3.srcs/sources_1/new/mul.v,1732812625,verilog,,C:/Schemotechnic/lab3/lab3.srcs/sources_1/new/my_func.v,,mul,,,,,,,,
+C:/Schemotechnic/lab3/lab3.srcs/sources_1/new/my_func.v,1732812633,verilog,,C:/Schemotechnic/lab3/lab3.srcs/sources_1/new/reg_to_seg7.v,,my_func,,,,,,,,
+C:/Schemotechnic/lab3/lab3.srcs/sources_1/new/reg_to_seg7.v,1732812622,verilog,,C:/Schemotechnic/lab3/lab3.srcs/sim_1/new/my_func_tb.v,,res_to_seg7,,,,,,,,

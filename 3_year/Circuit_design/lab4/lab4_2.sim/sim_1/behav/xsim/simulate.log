@@ -1,0 +1,5 @@
+Vivado Simulator 2019.1
+Time resolution is 1 ps
+At time                    0, y = zzxxxx, busy = x
+At time                    5, y = zz0000, busy = 0
+Result for a = 170, b = 187 is y =        Z

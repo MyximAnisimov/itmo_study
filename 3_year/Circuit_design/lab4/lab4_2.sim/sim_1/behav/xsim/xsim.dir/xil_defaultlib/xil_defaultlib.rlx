@@ -1,0 +1,14 @@
+0.6
+2019.1
+May 24 2019
+15:06:07
+C:/Schemotechnic/lab4/lab4_2/lab4_2.sim/sim_1/behav/xsim/glbl.v,1558713910,verilog,,,,glbl,,,,,,,,
+C:/Schemotechnic/lab4/lab4_2/lab4_2.srcs/sim_1/new/bist_normal_tb.v,1734424350,verilog,,,,bist_normal_tb,,,,,,,,
+C:/Schemotechnic/lab4/lab4_2/lab4_2.srcs/sources_1/new/bist.v,1734425126,verilog,,C:/Schemotechnic/lab4/lab4_2/lab4_2.srcs/sources_1/new/crc8.v,,bist,,,,,,,,
+C:/Schemotechnic/lab4/lab4_2/lab4_2.srcs/sources_1/new/crc8.v,1734423988,verilog,,C:/Schemotechnic/lab4/lab4_2/lab4_2.srcs/sources_1/new/frequency_divider.v,,crc8,,,,,,,,
+C:/Schemotechnic/lab4/lab4_2/lab4_2.srcs/sources_1/new/frequency_divider.v,1734423649,verilog,,C:/Schemotechnic/lab4/lab4_2/lab4_2.srcs/sources_1/new/lfsr1.v,,frequency_divider,,,,,,,,
+C:/Schemotechnic/lab4/lab4_2/lab4_2.srcs/sources_1/new/lfsr1.v,1734423988,verilog,,C:/Schemotechnic/lab4/lab4_2/lab4_2.srcs/sources_1/new/lfsr2.v,,lfsr1,,,,,,,,
+C:/Schemotechnic/lab4/lab4_2/lab4_2.srcs/sources_1/new/lfsr2.v,1734423750,verilog,,C:/Schemotechnic/lab4/lab4_2/lab4_2.srcs/sources_1/new/mul.v,,lfsr2,,,,,,,,
+C:/Schemotechnic/lab4/lab4_2/lab4_2.srcs/sources_1/new/mul.v,1734427993,verilog,,C:/Schemotechnic/lab4/lab4_2/lab4_2.srcs/sources_1/new/my_func.v,,mul,,,,,,,,
+C:/Schemotechnic/lab4/lab4_2/lab4_2.srcs/sources_1/new/my_func.v,1734423691,verilog,,C:/Schemotechnic/lab4/lab4_2/lab4_2.srcs/sources_1/new/test_button.v,,my_func,,,,,,,,
+C:/Schemotechnic/lab4/lab4_2/lab4_2.srcs/sources_1/new/test_button.v,1734423988,verilog,,C:/Schemotechnic/lab4/lab4_2/lab4_2.srcs/sim_1/new/bist_normal_tb.v,,button,,,,,,,,

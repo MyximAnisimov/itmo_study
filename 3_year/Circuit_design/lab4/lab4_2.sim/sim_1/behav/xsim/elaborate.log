@@ -1,0 +1,23 @@
+Vivado Simulator 2019.1
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2019.1/bin/unwrapped/win64.o/xelab.exe -wto fec35eab1f0f465687afee191761749c --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot bist_normal_tb_behav xil_defaultlib.bist_normal_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-3091] actual bit length 24 differs from formal bit length 16 for port 'y_o' [C:/Schemotechnic/lab4/lab4_2/lab4_2.srcs/sim_1/new/bist_normal_tb.v:23]
+WARNING: [VRFC 10-3091] actual bit length 4 differs from formal bit length 24 for port 'y_bo' [C:/Schemotechnic/lab4/lab4_2/lab4_2.srcs/sources_1/new/bist.v:70]
+WARNING: [VRFC 10-3283] element index 23 into 'y_o' is out of bounds [C:/Schemotechnic/lab4/lab4_2/lab4_2.srcs/sources_1/new/bist.v:225]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.button
+Compiling module xil_defaultlib.mul
+Compiling module xil_defaultlib.frequency_divider
+Compiling module xil_defaultlib.my_func
+Compiling module xil_defaultlib.lfsr1
+Compiling module xil_defaultlib.lfsr2
+Compiling module xil_defaultlib.crc8
+Compiling module xil_defaultlib.bist
+Compiling module xil_defaultlib.bist_normal_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot bist_normal_tb_behav
